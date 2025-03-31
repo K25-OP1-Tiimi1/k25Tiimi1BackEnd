@@ -30,7 +30,7 @@ public class ProductController {
     @GetMapping("/add")
     public String addProduct(Model model){
     	model.addAttribute("product", new Product());
-        model.addAttribute("valmistaja", valmistajaRepository.findAll());
+        model.addAttribute("valmistajaList", valmistajaRepository.findAll());
         return "addproduct";
     }  
 
