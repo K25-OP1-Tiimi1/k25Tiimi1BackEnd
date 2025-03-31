@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.ValmistajaRepository;
 
 @Controller
 public class ProductController {
@@ -13,9 +14,13 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ValmistajaRepository valmistajaRepository;
+
     @GetMapping("/productlist")
     public String productlist(Model model) {
         model.addAttribute("productList", productRepository.findAll());
+        model.addAttribute("valmistajaList", valmistajaRepository.findAll());
         return "productlist";
     }
     

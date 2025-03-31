@@ -2,6 +2,8 @@ package k25tiimi1backend.k25tiimi1backend.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -13,6 +15,11 @@ public class Product {
 
     private String productName;
     private String productDescription;
+
+     @ManyToOne
+    @JoinColumn(name = "valmistaja_id")
+    private Valmistaja valmistaja;
+
 
     //Constructors
     public Product() {}
@@ -45,6 +52,14 @@ public class Product {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public Valmistaja getValmistaja() {
+        return valmistaja;
+    }
+
+    public void setValmistaja(Valmistaja valmistaja) {
+        this.valmistaja = valmistaja;
     }
 
     

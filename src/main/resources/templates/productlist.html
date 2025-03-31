@@ -18,6 +18,7 @@
             <tr th:each="product : ${productList}">
                 <td th:text="${product.productName}">Product Name</td>
                 <td th:text="${product.productDescription}">Description</td>
+                <td th:text="${product.valmistaja != null ? product.valmistaja.nimi : 'Ei valmistajaa'}"></td>
             </tr>
         </tbody>
     </table>
