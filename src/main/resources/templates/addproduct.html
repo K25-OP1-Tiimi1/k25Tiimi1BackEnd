@@ -23,8 +23,8 @@
             <select id="valmistaja" th:field="*{valmistaja}" required>
                 <option th:each="valmistaja : ${valmistajaList}" 
                         th:value="${valmistaja.id}" 
-                        th:text="${valmistaja.nimi}">
-                </option>
+                        th:text="${valmistaja.nimi}" 
+                        th:selected="${valmistaja.id == (product.valmistaja != null ? product.valmistaja.id : null)}"></option>
             </select>
             <div style="clear: both; display: block; height: 10px;"></div>
 
@@ -35,3 +35,5 @@
 </body>
 
 </html>
+
+
