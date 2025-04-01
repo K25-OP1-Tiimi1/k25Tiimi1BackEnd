@@ -29,9 +29,9 @@ public class ProductController {
     }
 
     @GetMapping("/add")
-    public String addProduct(Model model) {
-        model.addAttribute("product", new Product());
-        model.addAttribute("valmistajaList", valmistajaRepository.findAll());
+    public String addProduct(Model model){
+    	model.addAttribute("product", new Product());
+        model.addAttribute("valmistaja", valmistajaRepository.findAll());
         return "addproduct";
     }
     
