@@ -30,10 +30,10 @@ public class K25tiimi1backendApplication {
 		return (args) -> {
 			
 			Manufacturer manufacturer1 = new Manufacturer();
-			manufacturer1.setNimi("Nike");
+			manufacturer1.setName("Nike");
 
 			Manufacturer manufacturer2 = new Manufacturer();
-			manufacturer2.setNimi("Rukka");
+			manufacturer2.setName("Rukka");
 
 			manufacturerRepository.save(manufacturer1);
 			manufacturerRepository.save(manufacturer2);
@@ -41,14 +41,14 @@ public class K25tiimi1backendApplication {
 
 			// Testi tuotteet
 			Product A = new Product("Testituote 1", "Testituotteen 1 kuvaus");
-			A.setmanufacturer(manufacturer1);
+			A.setManufacturer(manufacturer1);
 		
 
 			Product B = new Product("Testituote 2", "Testituotteen 2 kuvaus");
-			B.setmanufacturer(manufacturer2);
+			B.setManufacturer(manufacturer2);
 
 			Product C = new Product("Testituote 3", "Testituotteen 3 kuvaus");
-			C.setmanufacturer(manufacturer1);
+			C.setManufacturer(manufacturer1);
 
 			productRepository.save(A);
 			productRepository.save(B);

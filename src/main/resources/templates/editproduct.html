@@ -7,7 +7,7 @@
 <body>
     <h1>Edit Product</h1>
     <div>
-        <form th:object="${product}" th:action="@{../save}" action="#" method="post">
+        <form th:object="${product}" th:action="@{../saveproduct}" action="#" method="post">
             <input type="hidden" id="id" th:field="*{id}" />
             
             <label for="productName">Product Name</label>
@@ -20,9 +20,9 @@
             
             <label for="manufacturer">Manufacturer</label>
             <select id="manufacturer" th:field="*{manufacturer}" class="form-control">
-                <option th:each="manufacturer : ${manufacturer}" 
+                <option th:each="manufacturer : ${manufacturerList}" 
                         th:value="${manufacturer.id}" 
-                        th:text="${manufacturer.nimi}">
+                        th:text="${manufacturer.name}">
                 </option>
             </select>
             <div style="clear: both; display: block; height: 10px;"></div>

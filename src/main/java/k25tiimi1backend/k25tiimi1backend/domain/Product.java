@@ -58,7 +58,7 @@ public class Product {
         return manufacturer;
     }
 
-    public void setmanufacturer(Manufacturer manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 

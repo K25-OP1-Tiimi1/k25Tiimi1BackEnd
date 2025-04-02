@@ -16,7 +16,7 @@ public class Manufacturer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String nimi;
+    private String name;
 
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private List<Product> tuotteet = new ArrayList<>();
@@ -29,12 +29,12 @@ public class Manufacturer {
         this.id = id;
     }
 
-    public String getNimi() {
-        return nimi;
+    public String getName() {
+        return name;
     }
 
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Product> getTuotteet() {

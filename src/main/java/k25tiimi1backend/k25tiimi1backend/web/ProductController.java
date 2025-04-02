@@ -28,14 +28,14 @@ public class ProductController {
         return "productlist";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addproduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("manufacturerList", manufacturerRepository.findAll());
         return "addproduct";
     }
     
-    @PostMapping("/save")
+    @PostMapping("/saveproduct")
     public String saveProduct(@ModelAttribute Product product) {
         productRepository.save(product);
         return "redirect:/productlist";
@@ -51,7 +51,7 @@ public class ProductController {
 public String editProduct(@PathVariable("id") Long id, Model model) {
     Product product = productRepository.findById(id).orElse(null); 
     model.addAttribute("product", product);
-    model.addAttribute("manufacturers", manufacturerRepository.findAll());
+    model.addAttribute("manufacturerList", manufacturerRepository.findAll());
 
     return "editproduct";
 }
