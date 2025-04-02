@@ -7,16 +7,16 @@ import org.springframework.context.annotation.Bean;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
-import k25tiimi1backend.k25tiimi1backend.domain.Valmistaja;
-import k25tiimi1backend.k25tiimi1backend.domain.ValmistajaRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
+import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
 @SpringBootApplication
 public class K25tiimi1backendApplication {
 
-    private final ValmistajaRepository valmistajaRepository;
+    private final ManufacturerRepository ManufacturerRepository;
 
-    K25tiimi1backendApplication(ValmistajaRepository valmistajaRepository) {
-        this.valmistajaRepository = valmistajaRepository;
+    K25tiimi1backendApplication(ManufacturerRepository manufacturerRepository) {
+        this.ManufacturerRepository = manufacturerRepository;
     }
 
 	public static void main(String[] args) {
@@ -26,29 +26,29 @@ public class K25tiimi1backendApplication {
 	// Luotu omaa testaamista varten. Saa muokata oman maun ja tarpeiden mukaan t:
 	// Jussi
 	@Bean
-	public CommandLineRunner demo(ProductRepository productRepository, ValmistajaRepository valmistajaRepository) {
+	public CommandLineRunner demo(ProductRepository productRepository, ManufacturerRepository manufacturerRepository) {
 		return (args) -> {
 			
-			Valmistaja valmistaja1 = new Valmistaja();
-			valmistaja1.setNimi("Nike");
+			Manufacturer manufacturer1 = new Manufacturer();
+			manufacturer1.setNimi("Nike");
 
-			Valmistaja valmistaja2 = new Valmistaja();
-			valmistaja2.setNimi("Rukka");
+			Manufacturer manufacturer2 = new Manufacturer();
+			manufacturer2.setNimi("Rukka");
 
-			valmistajaRepository.save(valmistaja1);
-			valmistajaRepository.save(valmistaja2);
+			manufacturerRepository.save(manufacturer1);
+			manufacturerRepository.save(manufacturer2);
 
 
 			// Testi tuotteet
 			Product A = new Product("Testituote 1", "Testituotteen 1 kuvaus");
-			A.setValmistaja(valmistaja1);
+			A.setmanufacturer(manufacturer1);
 		
 
 			Product B = new Product("Testituote 2", "Testituotteen 2 kuvaus");
-			B.setValmistaja(valmistaja2);
+			B.setmanufacturer(manufacturer2);
 
 			Product C = new Product("Testituote 3", "Testituotteen 3 kuvaus");
-			C.setValmistaja(valmistaja1);
+			C.setmanufacturer(manufacturer1);
 
 			productRepository.save(A);
 			productRepository.save(B);

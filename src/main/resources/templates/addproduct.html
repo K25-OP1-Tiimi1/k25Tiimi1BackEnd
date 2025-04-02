@@ -19,12 +19,12 @@
             <input type="text" id="productDescription" th:field="*{productDescription}" required />
             <div style="clear: both; display: block; height: 10px;"></div>
 
-            <label for="valmistaja">Manufacturer</label>
-            <select id="valmistaja" th:field="*{valmistaja}" required>
-                <option th:each="valmistaja : ${valmistajaList}" 
-                        th:value="${valmistaja.id}" 
-                        th:text="${valmistaja.nimi}" 
-                        th:selected="${valmistaja.id == (product.valmistaja != null ? product.valmistaja.id : null)}"></option>
+            <label for="manufacturer">Manufacturer</label>
+            <select id="manufacturer" th:field="*{manufacturer}" required>
+                <option th:each="manufacturer : ${manufacturerList}" 
+                        th:value="${manufacturer.id}" 
+                        th:text="${manufacturer.nimi}">
+                </option>
             </select>
             <div style="clear: both; display: block; height: 10px;"></div>
 

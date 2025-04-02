@@ -11,14 +11,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Valmistaja {
+public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nimi;
 
-    @OneToMany(mappedBy = "valmistaja", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private List<Product> tuotteet = new ArrayList<>();
 
     public Long getId() {
@@ -45,7 +45,7 @@ public class Valmistaja {
         this.tuotteet = tuotteet;
     }
 
-    public void save(Valmistaja valmistaja1) {
+    public void save(Manufacturer manufacturer1) {
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 

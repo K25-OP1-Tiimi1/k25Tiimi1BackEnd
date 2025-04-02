@@ -17,8 +17,8 @@ public class Product {
     private String productDescription;
 
      @ManyToOne
-    @JoinColumn(name = "valmistaja_id")
-    private Valmistaja valmistaja;
+    @JoinColumn(name = "manufacturer_id")
+    private Manufacturer manufacturer;
 
 
     //Constructors
@@ -54,12 +54,12 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public Valmistaja getValmistaja() {
-        return valmistaja;
+    public Manufacturer getManufacturer() {
+        return manufacturer;
     }
 
-    public void setValmistaja(Valmistaja valmistaja) {
-        this.valmistaja = valmistaja;
+    public void setmanufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     

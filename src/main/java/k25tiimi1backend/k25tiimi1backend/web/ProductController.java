@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
-import k25tiimi1backend.k25tiimi1backend.domain.ValmistajaRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
 @Controller
 public class ProductController {
@@ -19,19 +19,19 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @Autowired
-    private ValmistajaRepository valmistajaRepository;
+    private ManufacturerRepository manufacturerRepository;
 
     @GetMapping("/productlist")
     public String productlist(Model model) {
         model.addAttribute("productList", productRepository.findAll());
-        model.addAttribute("valmistajaList", valmistajaRepository.findAll());
+        model.addAttribute("manufacturerList", manufacturerRepository.findAll());
         return "productlist";
     }
 
     @GetMapping("/add")
     public String addProduct(Model model) {
         model.addAttribute("product", new Product());
-        model.addAttribute("valmistajaList", valmistajaRepository.findAll());
+        model.addAttribute("manufacturerList", manufacturerRepository.findAll());
         return "addproduct";
     }
     
@@ -51,7 +51,7 @@ public class ProductController {
 public String editProduct(@PathVariable("id") Long id, Model model) {
     Product product = productRepository.findById(id).orElse(null); 
     model.addAttribute("product", product);
-    model.addAttribute("valmistajat", valmistajaRepository.findAll());
+    model.addAttribute("manufacturers", manufacturerRepository.findAll());
 
     return "editproduct";
 }

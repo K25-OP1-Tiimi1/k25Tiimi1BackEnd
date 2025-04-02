@@ -18,7 +18,7 @@
             <tr th:each="product : ${productList}">
                 <td th:text="${product.productName}">Product Name</td>
                 <td th:text="${product.productDescription}">Description</td>
-                <td th:text="${product.valmistaja != null ? product.valmistaja.nimi : 'Ei valmistajaa'}"></td>
+                <td th:text="${product.manufacturer!= null ? product.manufacturer.nimi : 'Ei valmistajaa'}"></td>
                 <td><a th:href="@{/delete/{id}(id=${product.id})}">Delete</a></td>
                 <td><a th:href="@{/edit/{id}(id=${product.id})}">Edit</a></td>
             </tr>
