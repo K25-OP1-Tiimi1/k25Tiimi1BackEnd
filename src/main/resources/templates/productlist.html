@@ -11,20 +11,32 @@
         <thead>
             <tr>
                 <th>Product</th>
-                <th>Description</th>
+                <th>Type</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Manufacturer</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="product : ${productList}">
                 <td th:text="${product.productName}">Product Name</td>
-                <td th:text="${product.productDescription}">Description</td>
-                <td th:text="${product.manufacturer!= null ? product.manufacturer.name : 'Ei valmistajaa'}"></td>
-                <td><a th:href="@{/delete/{id}(id=${product.id})}">Delete</a></td>
-                <td><a th:href="@{/edit/{id}(id=${product.id})}">Edit</a></td>
+                <td th:text="${product.productType}">Type</td>
+                <td th:text="${product.color}">Color</td>
+                <td th:text="${product.size}">Size</td>
+                <td th:text="${product.price}">Price</td>
+                <td th:text="${product.manufacturer != null ? product.manufacturer.name : 'Ei valmistajaa'}">Manufacturer</td>
+                <td>
+                    <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a> |
+                    <a th:href="@{/edit/{id}(id=${product.id})}">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    <a th:href="@{/addproduct}">New product</a>
+
+    <br>
+    <a th:href="@{/addproduct}">New product</a> |
     <a th:href="@{/addmanufacturer}">Add New Manufacturer</a>
 </body>
 </html>

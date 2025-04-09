@@ -1,6 +1,10 @@
 package k25tiimi1backend.k25tiimi1backend.domain;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,22 +18,31 @@ public class Product {
     private Long id;
 
     private String productName;
-    private String productDescription;
 
-     @ManyToOne
+    @Enumerated(EnumType.STRING)
+    private ProductType productType;
+
+    private String color;
+    private String size;
+    private BigDecimal price;
+
+    @ManyToOne
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-
-    //Constructors
-    public Product() {}
-
-    public Product(String productName, String productDescription) {
-        this.productName = productName;
-        this.productDescription = productDescription;
+    // Constructors
+    public Product() {
     }
 
-    //Getters & Setters
+    public Product(String productName, ProductType productType, String color, String size, BigDecimal price) {
+        this.productName = productName;
+        this.productType = productType;
+        this.color = color;
+        this.size = size;
+        this.price = price;
+    }
+
+    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -46,12 +59,36 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public Manufacturer getManufacturer() {
@@ -61,6 +98,4 @@ public class Product {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
-
-    
 }

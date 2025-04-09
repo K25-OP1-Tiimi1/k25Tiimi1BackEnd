@@ -1,5 +1,7 @@
 package k25tiimi1backend.k25tiimi1backend;
 
+import java.math.BigDecimal;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,17 +9,18 @@ import org.springframework.context.annotation.Bean;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
 import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
 import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
 @SpringBootApplication
 public class K25tiimi1backendApplication {
 
-    private final ManufacturerRepository ManufacturerRepository;
+	private final ManufacturerRepository ManufacturerRepository;
 
-    K25tiimi1backendApplication(ManufacturerRepository manufacturerRepository) {
-        this.ManufacturerRepository = manufacturerRepository;
-    }
+	K25tiimi1backendApplication(ManufacturerRepository manufacturerRepository) {
+		this.ManufacturerRepository = manufacturerRepository;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(K25tiimi1backendApplication.class, args);
@@ -28,7 +31,7 @@ public class K25tiimi1backendApplication {
 	@Bean
 	public CommandLineRunner demo(ProductRepository productRepository, ManufacturerRepository manufacturerRepository) {
 		return (args) -> {
-			
+
 			Manufacturer manufacturer1 = new Manufacturer();
 			manufacturer1.setName("Nike");
 
@@ -38,21 +41,37 @@ public class K25tiimi1backendApplication {
 			manufacturerRepository.save(manufacturer1);
 			manufacturerRepository.save(manufacturer2);
 
-
 			// Testi tuotteet
-			Product A = new Product("Testituote 1", "Testituotteen 1 kuvaus");
-			A.setManufacturer(manufacturer1);
-		
+			Product toy = new Product(
+					"Dog Toy",
+					ProductType.TOY,
+					"Red",
+					"Medium",
+					new BigDecimal("12.99"));
+			
+			toy.setManufacturer(manufacturer1);
 
-			Product B = new Product("Testituote 2", "Testituotteen 2 kuvaus");
-			B.setManufacturer(manufacturer2);
+			Product clothing = new Product(
+					"Dog Sweater",
+					ProductType.CLOTHING,
+					"Blue",
+					"Small",
+					new BigDecimal("24.50"));
+			
+			clothing.setManufacturer(manufacturer2);
 
-			Product C = new Product("Testituote 3", "Testituotteen 3 kuvaus");
-			C.setManufacturer(manufacturer1);
+			Product food = new Product(
+					"Premium Dog Food",
+					ProductType.FOOD,
+					"Brown",
+					"1kg",
+					new BigDecimal("19.95"));
+			
+			food.setManufacturer(manufacturer1);
 
-			productRepository.save(A);
-			productRepository.save(B);
-			productRepository.save(C);
+			productRepository.save(toy);
+			productRepository.save(clothing);
+			productRepository.save(food);
 		};
 	}
 
