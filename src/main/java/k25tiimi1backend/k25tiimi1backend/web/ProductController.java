@@ -55,4 +55,6 @@ public String editProduct(@PathVariable("id") Long id, Model model) {
 
     return "editproduct";
 }
+
 }
+
