@@ -2,6 +2,8 @@ package k25tiimi1backend.k25tiimi1backend.domain;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,6 +29,7 @@ public class Product {
     private BigDecimal price;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 

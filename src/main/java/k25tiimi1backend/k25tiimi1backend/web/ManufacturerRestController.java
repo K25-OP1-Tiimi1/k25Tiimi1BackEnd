@@ -1,0 +1,22 @@
+package k25tiimi1backend.k25tiimi1backend.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
+import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
+
+
+@RestController
+public class ManufacturerRestController {
+
+    @Autowired
+    private ManufacturerRepository manufacturerRepository;
+
+    @GetMapping("/manufacturers")
+    public Iterable<Manufacturer> getAllManufacturers() {
+        return manufacturerRepository.findAll();
+    }
+
+}
