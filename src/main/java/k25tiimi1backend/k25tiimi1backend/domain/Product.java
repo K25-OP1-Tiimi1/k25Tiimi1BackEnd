@@ -2,16 +2,14 @@ package k25tiimi1backend.k25tiimi1backend.domain;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
 @Entity
 public class Product {
@@ -29,7 +27,6 @@ public class Product {
     private BigDecimal price;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
@@ -101,4 +98,11 @@ public class Product {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+   /* @Override
+	public String toString() {
+		return "Product [id=" + id + ", productName=" + productName + ", productType=" + productType + ", color="
+				+ color + ", size=" + size + ", price=" + price + ", manufacturer=" + this.getManufacturer() + "]";
+	}*/
 }
+

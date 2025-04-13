@@ -3,6 +3,8 @@ package k25tiimi1backend.k25tiimi1backend.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +20,7 @@ public class Manufacturer {
 
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private List<Product> tuotteet = new ArrayList<>();
 
