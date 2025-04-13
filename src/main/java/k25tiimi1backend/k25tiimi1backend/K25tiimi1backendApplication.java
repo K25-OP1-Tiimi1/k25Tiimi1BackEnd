@@ -48,7 +48,7 @@ public class K25tiimi1backendApplication {
 					"Red",
 					"Medium",
 					new BigDecimal("12.99"));
-			
+
 			toy.setManufacturer(manufacturer1);
 
 			Product clothing = new Product(
@@ -57,7 +57,7 @@ public class K25tiimi1backendApplication {
 					"Blue",
 					"Small",
 					new BigDecimal("24.50"));
-			
+
 			clothing.setManufacturer(manufacturer2);
 
 			Product food = new Product(
@@ -66,7 +66,7 @@ public class K25tiimi1backendApplication {
 					"Brown",
 					"1kg",
 					new BigDecimal("19.95"));
-			
+
 			food.setManufacturer(manufacturer1);
 
 			productRepository.save(toy);
