@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manufacturers</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Manufacturer List</h1>
     <table>
-        <thead>
-            <tr>
-                <th>Manufacturer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="manufacturer : ${manufacturerList}">
-                <td th:text="${manufacturer.name}">Manufacturer Name</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Manufacturer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="manufacturer : ${manufacturerList}">
+          <td th:text="${manufacturer.name}">Manufacturer Name</td>
+        </tr>
+      </tbody>
     </table>
     <a href="/addmanufacturer">Add New Manufacturer</a>
     <a th:href="@{/productlist}">Back to Product List</a>
-</body>
+    <p><a href="/">Go to Main Page</a></p>
+  </body>
 </html>

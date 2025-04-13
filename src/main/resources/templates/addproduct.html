@@ -1,55 +1,64 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
+  <head>
     <title>Add Product</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Add Product</h1>
     <div>
-        <form th:object="${product}" th:action="@{/saveproduct}" method="post">
+      <form th:object="${product}" th:action="@{/saveproduct}" method="post">
+        <label for="productName">Product Name</label>
+        <input
+          type="text"
+          id="productName"
+          th:field="*{productName}"
+          required
+        />
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="productName">Product Name</label>
-            <input type="text" id="productName" th:field="*{productName}" required />
-            <div style="clear: both; display: block; height: 10px;"></div>
+        <label for="productType">Type</label>
+        <select id="productType" th:field="*{productType}" required>
+          <option value="" disabled>--Select Type--</option>
+          <option value="TOY">Toy</option>
+          <option value="CLOTHING">Clothing</option>
+          <option value="FOOD">Food</option>
+        </select>
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="productType">Type</label>
-            <select id="productType" th:field="*{productType}" required>
-                <option value="" disabled>--Select Type--</option>
-                <option value="TOY">Toy</option>
-                <option value="CLOTHING">Clothing</option>
-                <option value="FOOD">Food</option>
-            </select>
-            <div style="clear: both; display: block; height: 10px;"></div>
+        <label for="color">Color</label>
+        <input type="text" id="color" th:field="*{color}" />
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="color">Color</label>
-            <input type="text" id="color" th:field="*{color}" />
-            <div style="clear: both; display: block; height: 10px;"></div>
+        <label for="size">Size</label>
+        <input type="text" id="size" th:field="*{size}" />
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="size">Size</label>
-            <input type="text" id="size" th:field="*{size}" />
-            <div style="clear: both; display: block; height: 10px;"></div>
+        <label for="price">Price (€)</label>
+        <input
+          type="number"
+          step="0.01"
+          id="price"
+          th:field="*{price}"
+          required
+        />
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="price">Price (€)</label>
-            <input type="number" step="0.01" id="price" th:field="*{price}" required />
-            <div style="clear: both; display: block; height: 10px;"></div>
+        <label for="manufacturer">Manufacturer</label>
+        <select id="manufacturer" th:field="*{manufacturer}" required>
+          <option value="" disabled>--Select Manufacturer--</option>
+          <option
+            th:each="manufacturer : ${manufacturerList}"
+            th:value="${manufacturer.id}"
+            th:text="${manufacturer.name}"
+          ></option>
+        </select>
+        <div style="clear: both; display: block; height: 10px"></div>
 
-            <label for="manufacturer">Manufacturer</label>
-            <select id="manufacturer" th:field="*{manufacturer}" required>
-                <option value="" disabled>--Select Manufacturer--</option>
-                <option th:each="manufacturer : ${manufacturerList}" 
-                        th:value="${manufacturer.id}" 
-                        th:text="${manufacturer.name}">
-                </option>
-            </select>
-            <div style="clear: both; display: block; height: 10px;"></div>
-
-            <input type="submit" value="Save" />
-
-        </form>
+        <input type="submit" value="Save" />
+      </form>
     </div>
-</body>
-
+    <p><a href="/">Go to Main Page</a></p>
+  </body>
 </html>
