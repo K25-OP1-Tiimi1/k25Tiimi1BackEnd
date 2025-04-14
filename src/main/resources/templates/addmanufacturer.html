@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Add Manufacturer</title>
   </head>
   <body>
     <h1>Add Manufacturer</h1>
-    <form action="/savemanufacturer" method="post">
+    <form action="#" th:action="@{/savemanufacturer}" th:objects="${manufacturer}" method="post">
       <label for="name">Manufacturer Name</label>
       <input type="text" id="name" name="name" required />
-      <button type="submit">Save</button>
+      <input type="Submit" value="save"></input>
     </form>
     <a href="/manufacturerlist">Manufacturer List</a>
     <a th:href="@{/productlist}">Back to Product List</a>
