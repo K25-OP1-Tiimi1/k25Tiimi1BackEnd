@@ -7,11 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
+import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
-import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
-import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
 @SpringBootApplication
 public class K25tiimi1backendApplication {
