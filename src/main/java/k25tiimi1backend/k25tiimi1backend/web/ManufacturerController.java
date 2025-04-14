@@ -4,13 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
 import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
-import k25tiimi1backend.k25tiimi1backend.domain.Product;
-import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 
 @Controller
 public class ManufacturerController {
