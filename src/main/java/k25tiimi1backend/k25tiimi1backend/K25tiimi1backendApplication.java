@@ -82,6 +82,7 @@ public class K25tiimi1backendApplication {
     return (args) -> {
         userRepository.save(new User("johnson", "johnson@gmail.com"));
         userRepository.save(new User("moi", "moi@gmail.com"));
+		userRepository.save(new User("^_^", "lol@gmail.com"));
     };
 }
 

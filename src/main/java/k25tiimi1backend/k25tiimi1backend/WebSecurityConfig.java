@@ -22,6 +22,7 @@ public class WebSecurityConfig {
           http
           .authorizeHttpRequests(authorize -> authorize
           .requestMatchers(antMatcher("/products")).permitAll()
+          .requestMatchers(antMatcher("/users")).permitAll()
           .anyRequest().authenticated())
           .formLogin(formlogin -> formlogin
           .defaultSuccessUrl("/", true)
