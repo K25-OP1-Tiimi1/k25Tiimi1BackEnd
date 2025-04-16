@@ -12,6 +12,8 @@ import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
+import k25tiimi1backend.k25tiimi1backend.domain.User;
+import k25tiimi1backend.k25tiimi1backend.domain.UserRepository;
 
 @SpringBootApplication
 public class K25tiimi1backendApplication {
@@ -74,5 +76,13 @@ public class K25tiimi1backendApplication {
 			productRepository.save(food);
 		};
 	}
+
+	@Bean
+	public CommandLineRunner demoUsers(UserRepository userRepository) {
+    return (args) -> {
+        userRepository.save(new User("johnson", "johnson@gmail.com"));
+        userRepository.save(new User("moi", "moi@gmail.com"));
+    };
+}
 
 }
