@@ -20,9 +20,18 @@ public class Manufacturer {
 
     private String name;
 
+
     @JsonIgnore
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
-    private List<Product> tuotteet = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
+
+    public List<Product> getProducts() {
+        return products;
+    }
+    
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public Long getId() {
         return id;
@@ -40,17 +49,15 @@ public class Manufacturer {
         this.name = name;
     }
 
-    public List<Product> getTuotteet() {
-        return tuotteet;
+    public List<Product> getproducts() {
+        return products;
     }
 
-    public void setTuotteet(List<Product> tuotteet) {
-        this.tuotteet = tuotteet;
+    public void setproducts(List<Product> products) {
+        this.products = products;
     }
 
-    public void save(Manufacturer manufacturer1) {
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
-    }
+    
 
     
 
