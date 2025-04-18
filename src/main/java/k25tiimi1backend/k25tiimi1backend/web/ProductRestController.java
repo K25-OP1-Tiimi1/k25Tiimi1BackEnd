@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
@@ -12,6 +13,7 @@ import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
 
 @RestController
+@RequestMapping("/api")
 @CrossOrigin
 public class ProductRestController {
 
