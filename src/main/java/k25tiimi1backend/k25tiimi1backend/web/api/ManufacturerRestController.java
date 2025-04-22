@@ -1,4 +1,4 @@
-package k25tiimi1backend.k25tiimi1backend.web;
+package k25tiimi1backend.k25tiimi1backend.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +11,7 @@ import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 @CrossOrigin
 public class ManufacturerRestController {
 
