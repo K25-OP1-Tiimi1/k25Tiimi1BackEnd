@@ -1,4 +1,4 @@
-package k25tiimi1backend.k25tiimi1backend.web;
+package k25tiimi1backend.k25tiimi1backend.web.api;
 
 import java.util.List;
 
