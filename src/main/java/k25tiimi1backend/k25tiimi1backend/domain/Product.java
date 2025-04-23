@@ -25,6 +25,7 @@ public class Product {
     private String color;
     private String size;
     private BigDecimal price;
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "manufacturer_id")
@@ -34,12 +35,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, ProductType productType, String color, String size, BigDecimal price) {
+    public Product(String productName, ProductType productType, String color, String size, BigDecimal price, int quantity) {
         this.productName = productName;
         this.productType = productType;
         this.color = color;
         this.size = size;
         this.price = price;
+        this.quantity = quantity;
     }
 
     // Getters & Setters
@@ -97,6 +99,14 @@ public class Product {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
 
    /* @Override

@@ -49,7 +49,8 @@ public class K25tiimi1backendApplication {
 					ProductType.TOY,
 					"Red",
 					"Medium",
-					new BigDecimal("12.99"));
+					new BigDecimal("12.99"),
+					12);
 
 			toy.setManufacturer(manufacturer1);
 
@@ -58,7 +59,8 @@ public class K25tiimi1backendApplication {
 					ProductType.CLOTHING,
 					"Blue",
 					"Small",
-					new BigDecimal("24.50"));
+					new BigDecimal("24.50"),
+					9);
 
 			clothing.setManufacturer(manufacturer2);
 
@@ -67,7 +69,8 @@ public class K25tiimi1backendApplication {
 					ProductType.FOOD,
 					"Brown",
 					"1kg",
-					new BigDecimal("19.95"));
+					new BigDecimal("19.95"),
+					32);
 
 			food.setManufacturer(manufacturer1);
 

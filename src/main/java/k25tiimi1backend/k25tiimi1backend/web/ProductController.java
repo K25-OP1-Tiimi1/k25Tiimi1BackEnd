@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
@@ -56,5 +57,22 @@ public String editProduct(@PathVariable("id") Long id, Model model) {
     return "editproduct";
 }
 
+@PostMapping("/products/update")
+public String updateQuantity(@RequestParam Long id, @RequestParam String action) {
+    Product product = productRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Product not found"));
+
+    if ("increase".equals(action)) {
+        product.setQuantity(product.getQuantity() + 1);
+    } else if ("decrease".equals(action)) {
+        product.setQuantity(Math.max(product.getQuantity() - 1, 0));
+    }
+
+    productRepository.save(product);
+    return "redirect:/productlist"; 
 }
+
+}
+
+
 
