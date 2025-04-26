@@ -83,9 +83,9 @@ public class K25tiimi1backendApplication {
 	@Bean
 	public CommandLineRunner demoUsers(UserRepository userRepository) {
     return (args) -> {
-        userRepository.save(new User("johnson", "johnson@gmail.com"));
-        userRepository.save(new User("moi", "moi@gmail.com"));
-		userRepository.save(new User("^_^", "lol@gmail.com"));
+        userRepository.save(new User("johnson@gmail.com", "Johnson", "TestCase", "Jhonson"));
+        userRepository.save(new User("moi@gmail.com", "Moi", "Hei", "tervehdys"));
+		userRepository.save(new User("lol@gmail.com", "Joke", "Funny", "Test"));
     };
 }
 
