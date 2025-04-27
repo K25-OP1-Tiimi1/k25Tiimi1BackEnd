@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Manufacturer's products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>Products by <span th:text="${manufacturer.name}"></span></h1>
+
+    <table>
+      <tbody>
+        <tr th:each="product : ${manufacturer.products}">
+          <td th:text="${product.productName}">Product Name</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><a th:href="@{/manufacturerlist}">Back to Manufacturer List</a></p>
+    <p><a href="/homepage">Go to Main Page</a></p>
+  </body>
+</html>
