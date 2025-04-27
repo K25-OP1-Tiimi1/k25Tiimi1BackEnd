@@ -21,9 +21,11 @@
         <label for="productType">Type</label>
         <select id="productType" th:field="*{productType}" required>
           <option value="" disabled>--Select Type--</option>
-          <option value="TOY">Toy</option>
-          <option value="CLOTHING">Clothing</option>
-          <option value="FOOD">Food</option>
+          <option 
+            th:each="type : ${productTypeList}" 
+            th:value="${type}" 
+            th:text="${type}">
+          </option>
         </select>
         <div style="clear: both; display: block; height: 10px"></div>
 

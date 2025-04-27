@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
 import k25tiimi1backend.k25tiimi1backend.domain.Size;
 import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 
@@ -35,6 +36,7 @@ public class ProductController {
         model.addAttribute("product", new Product());
         model.addAttribute("manufacturerList", manufacturerRepository.findAll());
         model.addAttribute("sizeList", Size.values());
+        model.addAttribute("productTypeList", ProductType.values());
         return "addproduct";
     }
     
