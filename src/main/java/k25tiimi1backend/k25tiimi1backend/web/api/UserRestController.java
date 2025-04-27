@@ -34,6 +34,16 @@ public class UserRestController {
         return userRepository.findById(id);
     }
 
+
+    @GetMapping("/user/findemail/{email}/{password}")
+    public User getUserBySignIn(@PathVariable("email") String email,@PathVariable("password") String password) {
+        User user = userRepository.findByEmail(email);
+            if (user.getPassword().equals(password)){
+                return user;}
+     
+                else {return user;}
+    }
+
     @PostMapping("/registerUser")
     public User newUser(@RequestBody User newUser) {
         return userRepository.save(newUser);
