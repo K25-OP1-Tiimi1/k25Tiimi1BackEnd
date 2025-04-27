@@ -22,8 +22,12 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
+    
     private String color;
-    private String size;
+
+    @Enumerated(EnumType.STRING)
+    private Size size;
+
     private BigDecimal price;
     private int quantity;
 
@@ -35,7 +39,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, ProductType productType, String color, String size, BigDecimal price, int quantity) {
+    public Product(String productName, ProductType productType, String color, Size size, BigDecimal price, int quantity) {
         this.productName = productName;
         this.productType = productType;
         this.color = color;
@@ -77,11 +81,14 @@ public class Product {
         this.color = color;
     }
 
-    public String getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(Size size) {
+        if (this.productType == ProductType.CLOTHING && size == null) {
+            throw new IllegalArgumentException("Size is required for clothing products");
+        }
         this.size = size;
     }
 

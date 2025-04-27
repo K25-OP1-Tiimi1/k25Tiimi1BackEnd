@@ -30,10 +30,12 @@
         <label for="color">Color</label>
         <input type="text" id="color" th:field="*{color}" />
         <div style="clear: both; display: block; height: 10px"></div>
-
+        
         <label for="size">Size</label>
-        <input type="text" id="size" th:field="*{size}" />
-        <div style="clear: both; display: block; height: 10px"></div>
+        <select id="size" th:field="*{size}" required>
+          <option value="" disabled>--Select Size--</option>
+          <option th:each="size : ${sizeList}" th:value="${size}" th:text="${size}"></option>
+        </select>
 
         <label for="price">Price (€)</label>
         <input

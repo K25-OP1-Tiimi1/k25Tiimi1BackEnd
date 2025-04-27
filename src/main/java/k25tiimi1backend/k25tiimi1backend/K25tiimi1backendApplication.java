@@ -14,6 +14,7 @@ import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
 import k25tiimi1backend.k25tiimi1backend.domain.User;
 import k25tiimi1backend.k25tiimi1backend.domain.UserRepository;
+import k25tiimi1backend.k25tiimi1backend.domain.Size;
 
 @SpringBootApplication
 public class K25tiimi1backendApplication {
@@ -48,7 +49,7 @@ public class K25tiimi1backendApplication {
 					"Dog Toy",
 					ProductType.TOY,
 					"Red",
-					"Medium",
+					Size.M,
 					new BigDecimal("12.99"),
 					12);
 
@@ -58,7 +59,7 @@ public class K25tiimi1backendApplication {
 					"Dog Sweater",
 					ProductType.CLOTHING,
 					"Blue",
-					"Small",
+					Size.S,
 					new BigDecimal("24.50"),
 					9);
 
@@ -68,7 +69,7 @@ public class K25tiimi1backendApplication {
 					"Premium Dog Food",
 					ProductType.FOOD,
 					"Brown",
-					"1kg",
+					Size.ONE_KG,
 					new BigDecimal("19.95"),
 					32);
 
