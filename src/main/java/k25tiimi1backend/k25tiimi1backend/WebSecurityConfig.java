@@ -27,10 +27,11 @@ public class WebSecurityConfig {
             // .requestMatchers(antMatcher("/users")).permitAll()
             .requestMatchers(antMatcher("/css/**")).permitAll()
             .requestMatchers(antMatcher("/h2-console/**")).permitAll()
+            .requestMatchers(antMatcher("/")).permitAll()
             .anyRequest().authenticated())
         .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
         .formLogin(formlogin -> formlogin
-            .defaultSuccessUrl("/", true)
+            .defaultSuccessUrl("/homepage", true)
             .permitAll())
         .logout(logout -> logout
             .permitAll())

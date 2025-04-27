@@ -9,10 +9,10 @@
     <h1>Manufacturer List</h1>
 
     <!-- Virheilmoitus-->
-    <div th:if="${error}" style="color: red;">
+    <div th:if="${error}" style="color: red">
       <p th:text="${error}"></p>
-  </div>
-      <!-- Virheilmoitus-->
+    </div>
+    <!-- Virheilmoitus-->
 
     <table>
       <thead>
@@ -24,13 +24,15 @@
         <tr th:each="manufacturer : ${manufacturerList}">
           <td th:text="${manufacturer.name}">Manufacturer Name</td>
           <td>
-            <a th:href="@{/deletemanufacturer/{id}(id=${manufacturer.id})}">Delete</a>
+            <a th:href="@{/deletemanufacturer/{id}(id=${manufacturer.id})}"
+              >Delete</a
+            >
           </td>
         </tr>
       </tbody>
     </table>
     <a href="/addmanufacturer">Add New Manufacturer</a>
     <a th:href="@{/productlist}">Back to Product List</a>
-    <p><a href="/">Go to Main Page</a></p>
+    <p><a href="/homepage">Go to Main Page</a></p>
   </body>
 </html>

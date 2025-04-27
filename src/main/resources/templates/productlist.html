@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productlist</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Productlist</title>
-</head>
+  <body>
+    <h1>Products</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Type</th>
+          <th>Color</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Manufacturer</th>
+          <th>Ammount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="product : ${productList}">
+          <td th:text="${product.productName}">Product Name</td>
+          <td th:text="${product.productType}">Type</td>
+          <td th:text="${product.color}">Color</td>
+          <td th:text="${product.size}">Size</td>
+          <td th:text="${product.price}">Price</td>
+          <td
+            th:text="${product.manufacturer != null ? product.manufacturer.name : 'Ei valmistajaa'}"
+          >
+            Manufacturer
+          </td>
+          <td>
+            <span th:text="${product.quantity}">Quantity</span>
 
-<body>
-  <h1>Products</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Type</th>
-        <th>Color</th>
-        <th>Size</th>
-        <th>Price</th>
-        <th>Manufacturer</th>
-        <th>Ammount</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="product : ${productList}">
-        <td th:text="${product.productName}">Product Name</td>
-        <td th:text="${product.productType}">Type</td>
-        <td th:text="${product.color}">Color</td>
-        <td th:text="${product.size}">Size</td>
-        <td th:text="${product.price}">Price</td>
-        <td th:text="${product.manufacturer != null ? product.manufacturer.name : 'Ei valmistajaa'}">
-          Manufacturer
-        </td>
-        <td>
-          <span th:text="${product.quantity}">Quantity</span>
+            <form
+              th:action="@{/products/update}"
+              method="post"
+              style="display: inline"
+            >
+              <input type="hidden" name="id" th:value="${product.id}" />
+              <input type="hidden" name="action" value="increase" />
+              <button type="submit">+</button>
+            </form>
 
-          <form th:action="@{/products/update}" method="post" style="display:inline">
-            <input type="hidden" name="id" th:value="${product.id}" />
-            <input type="hidden" name="action" value="increase" />
-            <button type="submit">+</button>
-          </form>
+            <form
+              th:action="@{/products/update}"
+              method="post"
+              style="display: inline"
+            >
+              <input type="hidden" name="id" th:value="${product.id}" />
+              <input type="hidden" name="action" value="decrease" />
+              <button type="submit">-</button>
+            </form>
+          </td>
+          <td>
+            <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a> |
+            <a th:href="@{/edit/{id}(id=${product.id})}">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-          <form th:action="@{/products/update}" method="post" style="display:inline">
-            <input type="hidden" name="id" th:value="${product.id}" />
-            <input type="hidden" name="action" value="decrease" />
-            <button type="submit">-</button>
-          </form>
-        </td>
-        <td>
-          <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a> |
-          <a th:href="@{/edit/{id}(id=${product.id})}">Edit</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br />
-  <a th:href="@{/addproduct}">New product</a> |
-  <a th:href="@{/addmanufacturer}">Add New Manufacturer</a>
-  <p><a href="/">Go to Main Page</a></p>
-</body>
-
+    <br />
+    <a th:href="@{/addproduct}">New product</a> |
+    <a th:href="@{/addmanufacturer}">Add New Manufacturer</a>
+    <p><a href="/homepage">Go to Main Page</a></p>
+  </body>
 </html>

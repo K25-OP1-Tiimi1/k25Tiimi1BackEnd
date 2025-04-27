@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Backend Index</title>
+    <title>Main Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <h1>Oops! You've got the wrong address.</h1>
+    <h1>Main Page</h1>
     <p>
-      Are you looking for the Omppu & Rane online store page? Find it from the
-      link below!
-    </p>
-    <p>
-      <a href="http://localhost:5173/">Take me to Omppu & Rane</a>
+      <a href="/productlist" th:href="@{/productlist}">Products</a>
+      <a href="/manufacturerlist" th:href="@{/manufacturerlist}"
+        >Manufacturers</a
+      >
+      <a href="/userlist" th:href="@{/userlist}">Users</a>
     </p>
   </body>
 </html>
