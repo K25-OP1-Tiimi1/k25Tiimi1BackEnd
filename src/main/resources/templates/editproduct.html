@@ -3,6 +3,7 @@
   <head>
     <title>Edit Product</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
   </head>
 
   <body>
@@ -49,7 +50,12 @@
             th:text="${manufacturer.name}"
           ></option>
         </select>
+        <div style="clear: both; height: 10px"></div>
 
+        <label for="quantity">Quantity</label>
+        <input type="number" step="1" id="quantity" th:field="*{quantity}">
+        <div style="clear: both; height: 10px"></div>
+        
         <input type="submit" value="Save" />
       </form>
       <p><a th:href="@{/productlist}">Cancel</a></p>
