@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User List</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
   </head>
   <body>
     <h1>Registered Users</h1>
@@ -25,6 +26,14 @@
           <td th:text="${user.firstname}">Firstname</td>
           <td th:text="${user.lastname}">Lastname</td>
           <td th:text="${user.password}">Password</td>
+          <td>
+            <a th:href="@{/edituser/{id}(id=${user.id})}">Edit</a>
+          </td>
+          
+          <td>
+            <a th:href="@{/deleteuser/{id}(id=${user.id})}" 
+               onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+          </td>
         </tr>
       </tbody>
     </table>
