@@ -1,9 +1,14 @@
 package k25tiimi1backend.k25tiimi1backend.domain;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,13 +20,10 @@ public class User {
 
     private String email, firstname, lastname, password;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Reservation> reservations;
 
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", email=" + email + ", firstname=" + firstname + ", lastname=" + lastname
-                + ", password=" + password + "]";
-    }
-
+    // Constructors
     public User(String email, String firstname, String lastname, String password) {
         this.email = email;
         this.firstname = firstname;
@@ -37,6 +39,7 @@ public class User {
         this.firstname = firstname;
     }
 
+    // Getters & Setters
     public String getLastname() {
         return lastname;
     }
@@ -59,14 +62,31 @@ public class User {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    // ToString
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", email=" + email + ", firstname=" + firstname + ", lastname=" + lastname
+                + ", password=" + password + "]";
+    }
 }

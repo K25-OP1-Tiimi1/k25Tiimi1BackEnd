@@ -17,6 +17,9 @@
           <th>Firstname</th>
           <th>Lastname</th>
           <th>Password</th>
+          <th>Reservations</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +29,15 @@
           <td th:text="${user.firstname}">Firstname</td>
           <td th:text="${user.lastname}">Lastname</td>
           <td th:text="${user.password}">Password</td>
+          <td>
+            <ul>
+              <li th:each="res : ${user.reservations}">
+                <span th:if="${res.product != null}" th:text="${res.product.productName} + ' x' + ${res.quantity}"></span>
+                <span th:if="${res.product == null}">Unknown product</span>
+              </li>
+            </ul>
+          </td>
+        
           <td>
             <a th:href="@{/edituser/{id}(id=${user.id})}">Edit</a>
           </td>

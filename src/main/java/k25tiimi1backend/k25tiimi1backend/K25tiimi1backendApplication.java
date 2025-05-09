@@ -12,6 +12,8 @@ import k25tiimi1backend.k25tiimi1backend.domain.ManufacturerRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.Product;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.ProductType;
+import k25tiimi1backend.k25tiimi1backend.domain.Reservation;
+import k25tiimi1backend.k25tiimi1backend.domain.ReservationRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.User;
 import k25tiimi1backend.k25tiimi1backend.domain.UserRepository;
 import k25tiimi1backend.k25tiimi1backend.domain.Size;
@@ -29,8 +31,6 @@ public class K25tiimi1backendApplication {
 		SpringApplication.run(K25tiimi1backendApplication.class, args);
 	}
 
-	// Luotu omaa testaamista varten. Saa muokata oman maun ja tarpeiden mukaan t:
-	// Jussi
 	@Bean
 	public CommandLineRunner demo(ProductRepository productRepository, ManufacturerRepository manufacturerRepository) {
 		return (args) -> {
@@ -83,11 +83,26 @@ public class K25tiimi1backendApplication {
 
 	@Bean
 	public CommandLineRunner demoUsers(UserRepository userRepository) {
-    return (args) -> {
-        userRepository.save(new User("johnson@gmail.com", "Johnson", "TestCase", "Jhonson"));
-        userRepository.save(new User("moi@gmail.com", "Moi", "Hei", "tervehdys"));
-		userRepository.save(new User("lol@gmail.com", "Joke", "Funny", "Test"));
-    };
-}
+		return (args) -> {
+			userRepository.save(new User("johnson@gmail.com", "Johnson", "TestCase", "Jhonson"));
+			userRepository.save(new User("moi@gmail.com", "Moi", "Hei", "tervehdys"));
+			userRepository.save(new User("lol@gmail.com", "Joke", "Funny", "Test"));
+		};
+
+	}
+
+	@Bean
+	public CommandLineRunner demoReservations(ReservationRepository reservationRepository,
+			UserRepository userRepository, ProductRepository productRepository) {
+		return (args) -> {
+			User user = userRepository.findById(1L).orElse(null);
+			Product product = productRepository.findById(1L).orElse(null);
+
+			if (user != null && product != null) {
+				Reservation reservation = new Reservation(2, user, product);
+				reservationRepository.save(reservation);
+			}
+		};
+	}
 
 }
