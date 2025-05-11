@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,9 +47,17 @@ public class UserRestController {
     }
 
     @PostMapping("/registerUser")
-    public User newUser(@RequestBody User newUser) {
-        return userRepository.save(newUser);
+    public ResponseEntity<?> newUser(@RequestBody User newUser) {
+    User existingUser = userRepository.findByEmail(newUser.getEmail());
+    if (existingUser != null) {
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
+            .body("Sähköpostiosoite on jo käytössä.");
     }
+
+    User savedUser = userRepository.save(newUser);
+    return ResponseEntity.ok(savedUser);
+}
 
     @DeleteMapping("/user/{id}")
     public Iterable<User> deleteuser(@PathVariable("id") long id) {

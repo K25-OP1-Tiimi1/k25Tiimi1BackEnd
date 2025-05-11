@@ -52,10 +52,16 @@ public String deleteUser(@PathVariable("id") Long userId) {
     return "redirect:/userlist";
 }
 
-    @PostMapping("/saveuser")
-    public String saveUser(User user) {
+@PostMapping("/saveuser")
+public String saveUser(User user, Model model) {
+    try {
         userRepository.save(user);
         return "redirect:/userlist";
+    } catch (Exception e) {
+        model.addAttribute("user", user);
+        model.addAttribute("errorMessage", "User with this email already exists.");
+        return "adduser";
     }
+}
 
 }
