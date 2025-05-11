@@ -36,14 +36,21 @@ public class UserController {
 }
 
 @PostMapping("/updateuser/{id}")
-public String updateUser(@PathVariable("id") Long userId, User updatedUser) {
-    User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Invalid user ID: " + userId));
-    user.setEmail(updatedUser.getEmail());
-    user.setFirstname(updatedUser.getFirstname());
-    user.setLastname(updatedUser.getLastname());
-    user.setPassword(updatedUser.getPassword());
-    userRepository.save(user);
-    return "redirect:/userlist";
+public String updateUser(@PathVariable("id") Long userId, User updatedUser, Model model) {
+    try {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user ID: " + userId));
+        user.setEmail(updatedUser.getEmail());
+        user.setFirstname(updatedUser.getFirstname());
+        user.setLastname(updatedUser.getLastname());
+        user.setPassword(updatedUser.getPassword());
+        userRepository.save(user);
+        return "redirect:/userlist";
+    } catch (Exception e) {
+        model.addAttribute("user", updatedUser);
+        model.addAttribute("errorMessage", "Email is already in use by another user.");
+        return "edituser";
+    }
 }
 
 @GetMapping("/deleteuser/{id}")
