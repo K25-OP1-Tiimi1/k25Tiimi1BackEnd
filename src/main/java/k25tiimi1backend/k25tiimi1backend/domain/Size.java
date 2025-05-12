@@ -12,7 +12,8 @@ public enum Size {
     // EI SAA KÄYTTÄÄ TUOTTEITA LUODESSA/LISÄTESSÄ!
     Medium("Medium"),
     Small("Small"),
-    Large("Large");
+    Large("Large"),
+    Kilogram("ONE_KG");
 
     private final String label;
 
