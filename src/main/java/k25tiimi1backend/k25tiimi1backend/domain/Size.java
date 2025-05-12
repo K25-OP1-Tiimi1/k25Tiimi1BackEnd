@@ -1,5 +1,8 @@
 package k25tiimi1backend.k25tiimi1backend.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Size {
     S("S"),
     M("M"),
@@ -22,10 +25,12 @@ public enum Size {
     }
 
     @Override
+    @JsonValue
     public String toString() {
         return label;
     }
 
+    @JsonCreator
     public static Size fromLabel(String label) {
         for (Size size : values()) {
             if (size.label.equalsIgnoreCase(label)) {
