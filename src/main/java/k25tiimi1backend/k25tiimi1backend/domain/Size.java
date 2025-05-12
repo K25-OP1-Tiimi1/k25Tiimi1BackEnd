@@ -7,7 +7,8 @@ public enum Size {
     ONE_KG,
 
     // EI SAA KÄYTTÄÄ TUOTTEITA LUODESSA/LISÄTESSÄ! LISÄTTY KOSKA RAHTI EI MUUTEN KÄYNNISTY
-    // syystä tai toisesta, kun Rahti käynnistää appia se haluaa koon Medium M sijasta, vaikka tälläsitä 
-    // ei missään tarvita 
-    Medium
+    // syystä tai toisesta, Rahti haluaa nämä käynnistystä varten
+    Medium,
+    Small,
+    Large
 }
