@@ -1,14 +1,37 @@
 package k25tiimi1backend.k25tiimi1backend.domain;
 
 public enum Size {
-    S,
-    M,
-    L,
-    ONE_KG,
+    S("S"),
+    M("M"),
+    L("L"),
+    ONE_KG("1kg"),
 
-    // EI SAA KÄYTTÄÄ TUOTTEITA LUODESSA/LISÄTESSÄ! LISÄTTY KOSKA RAHTI EI MUUTEN KÄYNNISTY
-    // syystä tai toisesta, Rahti haluaa nämä käynnistystä varten
-    Medium,
-    Small,
-    Large
+    // EI SAA KÄYTTÄÄ TUOTTEITA LUODESSA/LISÄTESSÄ!
+    Medium("Medium"),
+    Small("Small"),
+    Large("Large");
+
+    private final String label;
+
+    Size(String label) {
+        this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
+    public String toString() {
+        return label;
+    }
+
+    public static Size fromLabel(String label) {
+        for (Size size : values()) {
+            if (size.label.equalsIgnoreCase(label)) {
+                return size;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with label " + label);
+    }
 }

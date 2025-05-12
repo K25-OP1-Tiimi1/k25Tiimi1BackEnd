@@ -1,3 +1,6 @@
+// Recreates demo data in the database
+// and clears existing data
+
 package k25tiimi1backend.k25tiimi1backend.service;
 
 import k25tiimi1backend.k25tiimi1backend.domain.Manufacturer;
