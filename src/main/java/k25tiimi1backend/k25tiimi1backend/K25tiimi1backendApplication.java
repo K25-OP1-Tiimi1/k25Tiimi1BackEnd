@@ -69,7 +69,7 @@ public class K25tiimi1backendApplication {
 					"Premium Dog Food",
 					ProductType.FOOD,
 					"Brown",
-					Size.ONE_KG,
+					Size.fromLabel("1kg"),
 					new BigDecimal("19.95"),
 					32);
 
