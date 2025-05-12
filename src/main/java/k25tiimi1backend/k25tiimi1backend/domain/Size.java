@@ -13,7 +13,8 @@ public enum Size {
     Medium("Medium"),
     Small("Small"),
     Large("Large"),
-    Kilogram("ONE_KG");
+    Kilogram("ONE_KG"),
+    XXL("xxl");
 
     private final String label;
 
