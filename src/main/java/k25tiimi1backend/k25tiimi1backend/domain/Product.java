@@ -2,6 +2,7 @@ package k25tiimi1backend.k25tiimi1backend.domain;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,7 +26,7 @@ public class Product {
     
     private String color;
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = SizeConverter.class)
     private Size size;
 
     private BigDecimal price;
